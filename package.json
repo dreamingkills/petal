@@ -1,0 +1,30 @@
+{
+  "name": "petal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "RTFL",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn node dist/index.js",
+    "watch": "tsc -p tsconfig.json -w",
+    "test": "yarn mocha -r ts-node/register \"src/tests/**/*.spec.ts\""
+  },
+  "dependencies": {
+    "@types/node": "^15.12.4",
+    "@types/ws": "^7.4.5",
+    "date-fns": "^2.22.1",
+    "dotenv": "^10.0.0",
+    "eris": "^0.15.1",
+    "inversify": "^5.1.1",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.19",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.1",
+    "ts-mockito": "^2.6.1",
+    "ts-node": "^10.0.0"
+  }
+}

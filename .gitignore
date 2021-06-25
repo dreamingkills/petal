@@ -1,0 +1,7 @@
+# Compiled TypeScript code
+dist/
+
+# Contains sensitive information!
+.env
+
+node_modules/
