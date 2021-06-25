@@ -4,7 +4,6 @@ import { TYPES } from "./types";
 import { Bot } from "../structures/Bot";
 import { Client } from "eris";
 import { MessageResponder } from "../services/discord/MessageResponder";
-import { ResponseFinder } from "../services/discord/ResponseFinder";
 import { DateFormatter } from "../services/time/DateFormatter";
 
 let container = new Container();
@@ -16,10 +15,6 @@ container
 container
   .bind<MessageResponder>(TYPES.MessageResponder)
   .to(MessageResponder)
-  .inSingletonScope();
-container
-  .bind<ResponseFinder>(TYPES.ResponseFinder)
-  .to(ResponseFinder)
   .inSingletonScope();
 container
   .bind<DateFormatter>(TYPES.DateFormatter)

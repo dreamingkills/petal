@@ -1,15 +1,10 @@
 import { Message } from "eris";
-import { inject, injectable } from "inversify";
-import { TYPES } from "../../inversify/types";
+import { injectable } from "inversify";
 import { ResponseFinder } from "./ResponseFinder";
 
 @injectable()
 export class MessageResponder {
-  private responseFinder: ResponseFinder;
-
-  constructor(@inject(TYPES.ResponseFinder) responseFinder: ResponseFinder) {
-    this.responseFinder = responseFinder;
-  }
+  private responseFinder = new ResponseFinder();
 
   async handle(message: Message): Promise<void> {
     const response = this.responseFinder.getResponse(message.content);

@@ -20,15 +20,6 @@ describe(`Date Formatter`, () => {
     ).to.equal(`September 20th, 2003`);
   });
 
-  it("Should correctly format verbose dates without years and with ordinal indicators", () => {
-    expect(
-      service.formatDate(new Date(`November 22, 2020`), {
-        verbose: true,
-        ordinalIndicators: true,
-      })
-    ).to.equal(`November 22nd`);
-  });
-
   it("Should correctly format verbose dates with years and without ordinal indicators", () => {
     expect(
       service.formatDate(new Date(`November 20, 2002`), {
@@ -36,6 +27,15 @@ describe(`Date Formatter`, () => {
         verbose: true,
       })
     ).to.equal(`November 20, 2002`);
+  });
+
+  it("Should correctly format verbose dates without years and with ordinal indicators", () => {
+    expect(
+      service.formatDate(new Date(`November 22, 2020`), {
+        verbose: true,
+        ordinalIndicators: true,
+      })
+    ).to.equal(`November 22nd`);
   });
 
   it("Should correctly format verbose dates without years or ordinal indicators", () => {
