@@ -205,6 +205,5 @@ export default class MockDiscord {
     );
 
     this.message.channel = this.textChannel;
-    console.log(this.message.channel.createMessage);
   }
 }

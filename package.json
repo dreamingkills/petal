@@ -17,6 +17,7 @@
     "eris": "^0.15.1",
     "fdir": "^5.1.0",
     "inversify": "^5.1.1",
+    "picomatch": "^2.3.0",
     "reflect-metadata": "^0.1.13",
     "typescript": "^4.3.4",
     "winston": "^3.3.3"

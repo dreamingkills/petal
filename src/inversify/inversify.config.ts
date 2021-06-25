@@ -3,9 +3,10 @@ import { Container } from "inversify";
 import { TYPES } from "./types";
 import { Bot } from "../structures/Bot";
 import { Client } from "eris";
-import { MessageResponder } from "../services/discord/MessageResponder";
 import { DateFormatter } from "../services/time/DateFormatter";
 import { Logger } from "../services/Logger";
+import { CommandHandler } from "../services/CommandHandler";
+import { MessageHandler } from "../services/MessageHandler";
 
 let container = new Container();
 
@@ -14,13 +15,17 @@ container
   .bind<Client>(TYPES.Client)
   .toConstantValue(new Client(process.env.TOKEN || `Invalid Token`));
 container
-  .bind<MessageResponder>(TYPES.MessageResponder)
-  .to(MessageResponder)
-  .inSingletonScope();
-container
   .bind<DateFormatter>(TYPES.DateFormatter)
   .to(DateFormatter)
   .inSingletonScope();
 container.bind<Logger>(TYPES.Logger).to(Logger).inSingletonScope();
+container
+  .bind<CommandHandler>(TYPES.CommandHandler)
+  .to(CommandHandler)
+  .inSingletonScope();
+container
+  .bind<MessageHandler>(TYPES.MessageHandler)
+  .to(MessageHandler)
+  .inSingletonScope();
 
 export default container;

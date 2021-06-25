@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES2015",
+        "esModuleInterop": true,
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
