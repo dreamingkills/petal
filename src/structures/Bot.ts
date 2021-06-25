@@ -8,25 +8,11 @@ import { DateFormatter } from "../services/time/DateFormatter";
 
 @injectable()
 export class Bot {
-  private client: Client;
-  private logger: Logger;
-  private dateFormatter: DateFormatter;
-  private commandHandler: CommandHandler;
-  private messageHandler: MessageHandler;
-
-  constructor(
-    @inject(TYPES.Client) client: Client,
-    @inject(TYPES.Logger) logger: Logger,
-    @inject(TYPES.DateFormatter) dateFormatter: DateFormatter,
-    @inject(TYPES.CommandHandler) commandHandler: CommandHandler,
-    @inject(TYPES.MessageHandler) messageHandler: MessageHandler
-  ) {
-    this.client = client;
-    this.logger = logger;
-    this.dateFormatter = dateFormatter;
-    this.commandHandler = commandHandler;
-    this.messageHandler = messageHandler;
-  }
+  @inject(TYPES.Client) private client!: Client;
+  @inject(TYPES.Logger) private logger!: Logger;
+  @inject(TYPES.DateFormatter) private dateFormatter!: DateFormatter;
+  @inject(TYPES.CommandHandler) private commandHandler!: CommandHandler;
+  @inject(TYPES.MessageHandler) private messageHandler!: MessageHandler;
 
   public async listen(): Promise<void> {
     this.commandHandler.loadCommands();

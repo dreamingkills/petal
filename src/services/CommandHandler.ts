@@ -8,11 +8,7 @@ import { Logger } from "./Logger";
 @injectable()
 export class CommandHandler {
   private commands: Command[] = [];
-  private logger: Logger;
-
-  constructor(@inject(TYPES.Logger) logger: Logger) {
-    this.logger = logger;
-  }
+  @inject(TYPES.Logger) private logger!: Logger;
 
   public loadCommands() {
     const files = new fdir()

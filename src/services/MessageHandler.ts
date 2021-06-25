@@ -9,11 +9,7 @@ import { CommandHandler } from "./CommandHandler";
 
 @injectable()
 export class MessageHandler {
-  private commandHandler: CommandHandler;
-
-  constructor(@inject(TYPES.CommandHandler) commandHandler: CommandHandler) {
-    this.commandHandler = commandHandler;
-  }
+  @inject(TYPES.CommandHandler) private commandHandler!: CommandHandler;
 
   public async handleMessage(msg: Message<PossiblyUncachedTextableChannel>) {
     if (msg.author.bot) return;
