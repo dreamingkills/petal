@@ -4,4 +4,5 @@ export const TYPES = {
   Token: Symbol("Token"),
   MessageResponder: Symbol("MessageResponder"),
   DateFormatter: Symbol("DateFormatter"),
+  Logger: Symbol("Logger"),
 };

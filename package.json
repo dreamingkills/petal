@@ -15,9 +15,11 @@
     "date-fns": "^2.22.1",
     "dotenv": "^10.0.0",
     "eris": "^0.15.1",
+    "fdir": "^5.1.0",
     "inversify": "^5.1.1",
     "reflect-metadata": "^0.1.13",
-    "typescript": "^4.3.4"
+    "typescript": "^4.3.4",
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "@types/chai": "^4.2.19",

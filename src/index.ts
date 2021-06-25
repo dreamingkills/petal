@@ -5,11 +5,6 @@ import { Bot } from "./structures/Bot";
 
 let bot = container.get<Bot>(TYPES.Bot);
 
-bot
-  .listen()
-  .then(() => {
-    console.log(`Logged in!`);
-  })
-  .catch((error) => {
-    console.log(`Oh no! ${error}`);
-  });
+bot.listen().catch((error) => {
+  console.log(`Oh no! ${error}`);
+});

@@ -5,6 +5,7 @@ import { Bot } from "../structures/Bot";
 import { Client } from "eris";
 import { MessageResponder } from "../services/discord/MessageResponder";
 import { DateFormatter } from "../services/time/DateFormatter";
+import { Logger } from "../services/Logger";
 
 let container = new Container();
 
@@ -20,5 +21,6 @@ container
   .bind<DateFormatter>(TYPES.DateFormatter)
   .to(DateFormatter)
   .inSingletonScope();
+container.bind<Logger>(TYPES.Logger).to(Logger).inSingletonScope();
 
 export default container;
