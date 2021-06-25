@@ -8,6 +8,7 @@ import { Logger } from "../services/Logger";
 import { CommandHandler } from "../services/CommandHandler";
 import { MessageHandler } from "../services/MessageHandler";
 import { LocaleHandler } from "../services/Locales";
+import { QuantityParser } from "../services/time/QuantityParser";
 
 let container = new Container();
 
@@ -31,6 +32,10 @@ container
 container
   .bind<LocaleHandler>(TYPES.LocaleHandler)
   .to(LocaleHandler)
+  .inSingletonScope();
+container
+  .bind<QuantityParser>(TYPES.QuantityParser)
+  .to(QuantityParser)
   .inSingletonScope();
 
 export default container;

@@ -7,4 +7,5 @@ export const TYPES = {
   CommandHandler: Symbol("CommandHandler"),
   MessageHandler: Symbol("MessageHandler"),
   LocaleHandler: Symbol("LocaleHandler"),
+  QuantityParser: Symbol("QuantityParser"),
 };
