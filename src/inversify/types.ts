@@ -6,4 +6,5 @@ export const TYPES = {
   Logger: Symbol("Logger"),
   CommandHandler: Symbol("CommandHandler"),
   MessageHandler: Symbol("MessageHandler"),
+  LocaleHandler: Symbol("LocaleHandler"),
 };

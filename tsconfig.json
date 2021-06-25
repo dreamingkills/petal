@@ -11,7 +11,7 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "typeRoots": [
-            "src/types",
+            "./src/types",
             "./node_modules/@types"
         ],
         "types": [
@@ -24,10 +24,11 @@
         "resolveJsonModule": true
     },
     "include": [
-        "src/**/*"
-, "tests"    ],
+        "./src/**/*",
+        "./src/**/*.json",
+        "./tests"
+    ],
     "exclude": [
-        "node_modules",
-        "src/types"
+        "./node_modules"
     ]
 }

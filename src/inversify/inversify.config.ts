@@ -7,6 +7,7 @@ import { DateFormatter } from "../services/time/DateFormatter";
 import { Logger } from "../services/Logger";
 import { CommandHandler } from "../services/CommandHandler";
 import { MessageHandler } from "../services/MessageHandler";
+import { LocaleHandler } from "../services/Locales";
 
 let container = new Container();
 
@@ -26,6 +27,10 @@ container
 container
   .bind<MessageHandler>(TYPES.MessageHandler)
   .to(MessageHandler)
+  .inSingletonScope();
+container
+  .bind<LocaleHandler>(TYPES.LocaleHandler)
+  .to(LocaleHandler)
   .inSingletonScope();
 
 export default container;
