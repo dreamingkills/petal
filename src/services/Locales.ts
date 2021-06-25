@@ -44,7 +44,16 @@ export class LocaleHandler {
 
     const [category, term] = fieldName.split(`.`);
 
-    let localizedString = fetchLocale[category][term];
+    let localizedString = fetchLocale[category]?.[term];
+
+    if (!localizedString) {
+      const fallback = this.locales.get(`en`)?.[category][term];
+
+      if (fallback) {
+        localizedString = fallback;
+      } else
+        localizedString = `This text is untranslated, and a fallback could not be achieved.`;
+    }
 
     if (args) {
       for (let arg of Object.entries(args)) {

@@ -25,4 +25,17 @@ describe(`Locales`, () => {
       `안녕하세여, $name!`
     );
   });
+
+  it(`Should correctly fallback to English if a translation does not exist.`, () => {
+    expect(service.getLocale(`ko`, `debug.ENGLISH_ONLY_PHRASE`)).to.equal(
+      `This phrase only exists in English!`
+    );
+  });
+
+  it(`Should correctly fallback to error phrase if the fallback fails .`, () => {
+    // @ts-ignore - have to ignore this so that it intentionally fails work
+    expect(service.getLocale(`ko`, `general.NONEXISTENT_TRANSLATION`)).to.equal(
+      `This text is untranslated, and a fallback could not be achieved.`
+    );
+  });
 });

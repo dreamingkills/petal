@@ -4,5 +4,8 @@
 
     "general": {
         "PING": "Hello, $name!"
+    },
+    "debug": {
+        "ENGLISH_ONLY_PHRASE": "This phrase only exists in English!"
     }
 }
