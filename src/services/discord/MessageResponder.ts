@@ -11,15 +11,15 @@ export class MessageResponder {
     this.responseFinder = responseFinder;
   }
 
-  handle(message: Message): Promise<Message | Message[]> {
+  async handle(message: Message): Promise<void> {
     const response = this.responseFinder.getResponse(message.content);
 
     if (response) {
-      return message.channel.createMessage(
+      message.channel.createMessage(
         response.replace(`$u`, `<@${message.author.id}>`)
       );
     }
 
-    return Promise.reject();
+    return;
   }
 }

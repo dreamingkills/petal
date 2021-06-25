@@ -16,13 +16,13 @@ export class Bot {
     this.messageResponder = messageResponder;
   }
 
-  public listen(): Promise<void> {
-    this.client.on(`messageCreate`, (message) => {
+  public async listen(): Promise<void> {
+    this.client.on(`messageCreate`, async (message) => {
       if (message.author.bot) return;
 
-      this.messageResponder.handle(message as Message).then(() => {});
+      await this.messageResponder.handle(message as Message);
     });
 
-    return this.client.connect();
+    return await this.client.connect();
   }
 }
