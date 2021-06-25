@@ -22,7 +22,7 @@ describe(`Locales`, () => {
 
   it(`Should correctly localize Korean`, () => {
     expect(service.getLocale(`ko`, `general.PING`)).to.equal(
-      `안녕하세여, $name!`
+      `안녕하세요, $name!`
     );
   });
 
