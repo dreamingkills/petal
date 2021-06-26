@@ -12,6 +12,7 @@
         "PING": "The latency for this shard is approximately **$latencyms**."
     },
     "fun": {
+        "COINFLIP": "Coin Flip",
         "COINFLIP_HEADS": "The coin landed on **heads**!",
         "COINFLIP_TAILS": "The coin landed on **tails**!"
     },
