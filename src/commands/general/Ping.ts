@@ -6,7 +6,7 @@ export class PingCommand extends Command {
 
   async run(msg: Message) {
     return await msg.channel.createMessage(
-      this.locale.getLocale(`en`, `general.PING`, { name: msg.author.username })
+      this.locale(`en`, `general.PING`, { name: msg.author.username })
     );
   }
 }
