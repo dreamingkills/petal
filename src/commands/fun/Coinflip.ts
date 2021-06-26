@@ -10,7 +10,7 @@ export class CoinflipCommand extends Command {
       | "TAILS";
 
     return await msg.channel.createMessage(
-      this.locale("en", `fun.COINFLIP_${side}`)
+      this.locale.getLocale("en", `fun.COINFLIP_${side}`)
     );
   }
 }

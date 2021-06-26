@@ -15,7 +15,9 @@ let container = new Container();
 container.bind<Bot>(TYPES.Bot).to(Bot).inSingletonScope();
 container
   .bind<Client>(TYPES.Client)
-  .toConstantValue(new Client(process.env.TOKEN || `Invalid Token`));
+  .toConstantValue(
+    new Client(process.env.TOKEN || `Invalid Token`, { restMode: true })
+  );
 container
   .bind<DateFormatter>(TYPES.DateFormatter)
   .to(DateFormatter)

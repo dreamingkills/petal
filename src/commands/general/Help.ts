@@ -3,6 +3,7 @@ import container from "../../inversify/inversify.config";
 import { TYPES } from "../../inversify/types";
 import { CommandHandler } from "../../services/CommandHandler";
 import { Command } from "../../structures/command/Command";
+import { LocaleString } from "../../types/locales";
 
 export class HelpCommand extends Command {
   async run(msg: Message, args: string[]) {
@@ -32,8 +33,24 @@ export class HelpCommand extends Command {
   }
 
   private renderCommandHelp(command: Command) {
+    const hasDescription = this.locale.isValidLocaleKey(
+      `en`,
+      `command.DESC_${command.name.toUpperCase()}` as LocaleString
+    );
+
+    let commandDescription;
+
+    if (hasDescription) {
+      commandDescription = this.locale.getLocale(
+        `en`,
+        `command.DESC_${command.name.toUpperCase()}` as LocaleString
+      );
+    } else {
+      commandDescription = this.locale.getLocale(`en`, `command.DEFAULT`);
+    }
+
     return (
-      `**${command.name}**` +
+      `**${command.name}** - ${commandDescription}` +
       `\nAliases: ${command.aliases.join(`, `) || `None`}`
     );
   }

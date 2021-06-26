@@ -9,7 +9,7 @@ export abstract class Command {
     .slice(0, -"Command".length);
   readonly aliases: string[] = [];
 
-  readonly locale = container.get<LocaleHandler>(TYPES.LocaleHandler).getLocale;
+  readonly locale = container.get<LocaleHandler>(TYPES.LocaleHandler);
 
   abstract run(message: Message, args: string[]): Promise<unknown>;
 }

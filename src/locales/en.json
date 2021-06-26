@@ -4,10 +4,12 @@
 
     "command": {
         "DEFAULT": "This command has no description.",
-        "DESC_HELP": "This command allows you to view information about Petal's commands!"
+        "DESC_HELP": "Allows you to view information about Petal's commands!",
+        "DESC_COINFLIP": "Flips a coin! Each side of the coin is equally probable to land.",
+        "DESC_PING": "Returns Petal's latency (ping)."
     },
     "general": {
-        "PING": "Hello, $name!"
+        "PING": "The latency for this shard is approximately **$latencyms**."
     },
     "fun": {
         "COINFLIP_HEADS": "The coin landed on **heads**!",

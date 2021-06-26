@@ -36,7 +36,7 @@ export class LocaleHandler {
   public getLocale(
     locale: Locale,
     fieldName: LocaleString,
-    args?: { [key: string]: string }
+    args?: { [key: string]: string | number }
   ): string {
     const fetchLocale = this.locales.get(locale);
 
@@ -59,11 +59,21 @@ export class LocaleHandler {
       for (let arg of Object.entries(args)) {
         localizedString = localizedString.replace(
           new RegExp(`\\$${arg[0]}`, "g"),
-          arg[1]
+          arg[1].toString()
         );
       }
     }
 
     return localizedString;
+  }
+
+  public isValidLocaleKey(localeCode: Locale, fieldName: LocaleString) {
+    const locale = this.locales.get(localeCode);
+
+    if (!locale) return false;
+
+    const [category, term] = fieldName.split(`.`);
+
+    return !!locale[category]?.[term];
   }
 }
