@@ -6,6 +6,7 @@
         "PING": "안녕하세요, $name!"
     },
     "fun": {
+        "COINFLIP": "코인 플립",
         "COINFLIP_HEADS": "동전의 **앞면**!",
         "COINFLIP_TAILS": "동전의 **뒷면**!"
     }
