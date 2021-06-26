@@ -2,11 +2,11 @@ import { fdir } from "fdir";
 import { readFileSync } from "fs";
 import { injectable } from "inversify";
 import path from "path";
-import { LocaleString } from "../types/locales";
+import { Locale, LocaleString } from "../types/locales";
 
 @injectable()
 export class LocaleHandler {
-  locales: Map<string, { [key: string]: { [key: string]: string } }>;
+  locales: Map<Locale, { [key: string]: { [key: string]: string } }>;
 
   constructor() {
     this.locales = new Map();
@@ -27,14 +27,14 @@ export class LocaleHandler {
 
       const languageCode = filePath
         .split(`\\`)
-        [filePath.split(`\\`).length - 1].slice(0, -`.json`.length);
+        [filePath.split(`\\`).length - 1].slice(0, -`.json`.length) as Locale;
 
       this.locales.set(languageCode, data);
     }
   }
 
   public getLocale(
-    locale: `en` | `ko`,
+    locale: Locale,
     fieldName: LocaleString,
     args?: { [key: string]: string }
   ): string {

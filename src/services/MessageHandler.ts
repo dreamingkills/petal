@@ -26,9 +26,11 @@ export class MessageHandler {
 
       if (!command) return;
 
+      const args = msg.content.split(` `).slice(1);
+
       // Check if the channel is a partial
       if (msg.channel.hasOwnProperty("name")) {
-        return await command.run(msg as Message<TextableChannel>);
+        return await command.run(msg as Message<TextableChannel>, args);
       } else {
         const channel = this.client.getChannel(
           msg.channel.id
@@ -36,7 +38,7 @@ export class MessageHandler {
 
         msg.channel = channel;
 
-        return await command.run(msg as Message<TextableChannel>);
+        return await command.run(msg as Message<TextableChannel>, args);
       }
     }
   }

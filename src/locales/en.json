@@ -2,6 +2,10 @@
     "NAME": "English (English)",
     "EMOJI": "🇺🇸",
 
+    "command": {
+        "DEFAULT": "This command has no description.",
+        "DESC_HELP": "This command allows you to view information about Petal's commands!"
+    },
     "general": {
         "PING": "Hello, $name!"
     },

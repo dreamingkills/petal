@@ -11,5 +11,5 @@ export abstract class Command {
 
   readonly locale = container.get<LocaleHandler>(TYPES.LocaleHandler).getLocale;
 
-  abstract run(message: Message): Promise<unknown>;
+  abstract run(message: Message, args: string[]): Promise<unknown>;
 }
