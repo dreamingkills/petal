@@ -1,4 +1,4 @@
-import { Client } from "eris";
+import Eris, { Client } from "eris";
 import { inject, injectable } from "inversify";
 import { TYPES } from "../inversify/types";
 import { CommandHandler } from "../services/CommandHandler";
@@ -17,10 +17,17 @@ export class Bot {
   public async listen(): Promise<void> {
     this.commandHandler.loadCommands();
 
+    Object.defineProperty(Eris.User.prototype, "tag", {
+      enumerable: false,
+      get: function () {
+        return `${this.username}#${this.discriminator}`;
+      },
+    });
+
     this.client.once(`ready`, async () => {
       this.logger.info(
-        `Logged in as ${this.client.user.username}#${
-          this.client.user.discriminator
+        `Logged in as ${
+          this.client.user.tag
         }. Current date: ${this.dateFormatter.formatCurrentDate({
           verbose: true,
           includeYear: true,
