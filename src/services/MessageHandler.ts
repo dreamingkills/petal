@@ -1,4 +1,5 @@
 import {
+  Client,
   Message,
   PossiblyUncachedTextableChannel,
   TextableChannel,
@@ -10,6 +11,7 @@ import { CommandHandler } from "./CommandHandler";
 @injectable()
 export class MessageHandler {
   @inject(TYPES.CommandHandler) private commandHandler!: CommandHandler;
+  @inject(TYPES.Client) private client!: Client;
 
   public async handleMessage(msg: Message<PossiblyUncachedTextableChannel>) {
     if (msg.author.bot) return;
@@ -28,7 +30,7 @@ export class MessageHandler {
       if (msg.channel.hasOwnProperty("name")) {
         return await command.run(msg as Message<TextableChannel>);
       } else {
-        const channel = command.client.getChannel(
+        const channel = this.client.getChannel(
           msg.channel.id
         ) as TextableChannel;
 
