@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { Message } from "eris";
 import container from "../../inversify/inversify.config";
 import { TYPES } from "../../inversify/types";
@@ -6,7 +7,7 @@ import { Command } from "../../structures/command/Command";
 import { LocaleString } from "../../types/locales";
 
 export class HelpCommand extends Command {
-  async run(msg: Message, args: string[]) {
+  async run(msg: Message, _user: User, args: string[]) {
     const commandHandler = container.get<CommandHandler>(TYPES.CommandHandler);
 
     const commands = commandHandler.getCommands();

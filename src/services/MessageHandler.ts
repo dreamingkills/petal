@@ -5,8 +5,10 @@ import {
   TextableChannel,
 } from "eris";
 import { inject, injectable } from "inversify";
+import container from "../inversify/inversify.config";
 import { TYPES } from "../inversify/types";
 import { CommandHandler } from "./CommandHandler";
+import Database from "./Database";
 
 @injectable()
 export class MessageHandler {
@@ -28,9 +30,17 @@ export class MessageHandler {
 
       const args = msg.content.split(` `).slice(1);
 
+      const db = container.get<Database>(TYPES.Database);
+
+      let user = await db.getUser(msg.author.id);
+
+      if (user === null) {
+        user = await db.createUser(msg.author.id);
+      }
+
       // Check if the channel is a partial
       if (msg.channel.hasOwnProperty("name")) {
-        return await command.run(msg as Message<TextableChannel>, args);
+        return await command.run(msg as Message<TextableChannel>, user, args);
       } else {
         const channel = this.client.getChannel(
           msg.channel.id
@@ -38,7 +48,7 @@ export class MessageHandler {
 
         msg.channel = channel;
 
-        return await command.run(msg as Message<TextableChannel>, args);
+        return await command.run(msg as Message<TextableChannel>, user, args);
       }
     }
   }

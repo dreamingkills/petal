@@ -67,6 +67,27 @@ export class LocaleHandler {
     return localizedString;
   }
 
+  public getFlag(localeCode: Locale) {
+    const locale = this.locales.get(localeCode);
+
+    return (locale?.["EMOJI"] as unknown as string) || `❔`;
+  }
+
+  public getName(localeCode: Locale) {
+    const locale = this.locales.get(localeCode);
+
+    return (locale?.["NAME"] as unknown as string) || `Unknown (Unknown)`;
+  }
+
+  public isValidLocale(localeCode: string) {
+    // Enforcing localeCode to be typed as Locale here is kind of weird.
+    const locale = this.locales.get(localeCode as Locale);
+
+    if (!locale) return false;
+
+    return true;
+  }
+
   public isValidLocaleKey(localeCode: Locale, fieldName: LocaleString) {
     const locale = this.locales.get(localeCode);
 

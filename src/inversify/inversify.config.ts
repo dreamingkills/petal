@@ -9,6 +9,7 @@ import { CommandHandler } from "../services/CommandHandler";
 import { MessageHandler } from "../services/MessageHandler";
 import { LocaleHandler } from "../services/Locales";
 import { QuantityParser } from "../services/time/QuantityParser";
+import Database from "../services/Database";
 
 let container = new Container();
 
@@ -39,5 +40,6 @@ container
   .bind<QuantityParser>(TYPES.QuantityParser)
   .to(QuantityParser)
   .inSingletonScope();
+container.bind<Database>(TYPES.Database).to(Database).inSingletonScope();
 
 export default container;

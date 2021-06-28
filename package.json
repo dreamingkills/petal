@@ -7,9 +7,12 @@
   "scripts": {
     "start": "yarn node dist/index.js",
     "watch": "tsc -p tsconfig.json -w",
-    "test": "yarn mocha -r ts-node/register \"src/tests/**/*.spec.ts\""
+    "test": "yarn mocha -r ts-node/register \"src/tests/**/*.spec.ts\"",
+    "pgen": "npx prisma generate --schema src/prisma/schema.prisma",
+    "migrate": "npx prisma migrate dev --schema src/prisma/schema.prisma"
   },
   "dependencies": {
+    "@prisma/client": "^2.25.0",
     "@types/node": "^15.12.4",
     "@types/ws": "^7.4.5",
     "date-fns": "^2.22.1",
@@ -27,6 +30,7 @@
     "@types/mocha": "^8.2.2",
     "chai": "^4.3.4",
     "mocha": "^9.0.1",
+    "prisma": "^2.25.0",
     "ts-mockito": "^2.6.1",
     "ts-node": "^10.0.0"
   }

@@ -1,3 +1,4 @@
+import { User } from "@prisma/client";
 import { Message } from "eris";
 import container from "../../inversify/inversify.config";
 import { TYPES } from "../../inversify/types";
@@ -11,5 +12,5 @@ export abstract class Command {
 
   readonly locale = container.get<LocaleHandler>(TYPES.LocaleHandler);
 
-  abstract run(message: Message, args: string[]): Promise<unknown>;
+  abstract run(message: Message, user: User, args: string[]): Promise<unknown>;
 }

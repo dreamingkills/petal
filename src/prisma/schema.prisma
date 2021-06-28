@@ -1,0 +1,16 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id        Int    @id @default(autoincrement())
+    discordId String @unique @map("discord_id")
+    locale    String @default("en")
+
+    @@index([discordId], name: "discord_id")
+}

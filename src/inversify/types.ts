@@ -8,4 +8,5 @@ export const TYPES = {
   MessageHandler: Symbol("MessageHandler"),
   LocaleHandler: Symbol("LocaleHandler"),
   QuantityParser: Symbol("QuantityParser"),
+  Database: Symbol("Database"),
 };

@@ -6,10 +6,12 @@
         "DEFAULT": "This command has no description.",
         "DESC_HELP": "Allows you to view information about Petal's commands!",
         "DESC_COINFLIP": "Flips a coin! Each side of the coin is equally probable to land.",
-        "DESC_PING": "Returns Petal's latency (ping)."
+        "DESC_PING": "Returns Petal's latency (ping).",
+        "SETLOCALE_LOCALE_UPDATED": "Your locale was updated to $flag `$name`."
     },
     "general": {
-        "PING": "The latency for this shard is approximately **$latencyms**."
+        "PING": "The latency for this shard is approximately **$latencyms**.",
+        "INVALID_LOCALE": "`$loc` is not recognized as a valid locale."
     },
     "fun": {
         "COINFLIP": "Coin Flip",
